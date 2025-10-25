@@ -36,4 +36,11 @@ def create_app(config_name='default'):
     # Category routes
     api.add_resource(CategoryList, '/api/categories')
     
+    # Initialize database
+    @app.before_request
+    def create_tables():
+        if not hasattr(app, 'tables_created'):
+            db.create_all()
+            app.tables_created = True
+    
     return app
