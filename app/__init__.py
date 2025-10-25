@@ -36,6 +36,11 @@ def create_app(config_name='default'):
     # Category routes
     api.add_resource(CategoryList, '/api/categories')
     
+    # Root route
+    @app.route('/')
+    def home():
+        return {'message': 'Gemcart API is running', 'endpoints': ['/api/auth/register', '/api/auth/login', '/api/products', '/api/categories']}
+    
     # Initialize database
     @app.before_request
     def create_tables():
