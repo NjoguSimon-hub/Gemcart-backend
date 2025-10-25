@@ -5,3 +5,5 @@ Flask-RESTful==0.3.10
 Flask-CORS==4.0.0
 Werkzeug==2.3.7
 python-dotenv==1.0.0
+gunicorn==23.0.0
+
